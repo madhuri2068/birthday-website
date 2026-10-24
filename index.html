@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#350510">
+  <title>A Birthday Surprise for Jasnehh ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Knewave&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+<main class="stage" id="stage">
+
+  <!-- Fairy lights -->
+  <div class="lights" id="lights" aria-hidden="true">
+    <div class="wire"></div>
+  </div>
+
+  <!-- SCREEN 1: PASSWORD -->
+  <section class="screen password-screen active" id="passwordScreen">
+    <div class="password-content">
+      <h1 class="password-heading">
+        It's a special surprise<br>
+        <span>for you ♡</span>
+      </h1>
+
+      <form id="passwordForm">
+        <div class="password-input-wrap">
+          <span class="lock-icon" aria-hidden="true">♙</span>
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="Enter password..."
+            aria-label="Enter password"
+            autocomplete="off"
+            required
+          >
+          <button
+            type="button"
+            class="toggle-password"
+            id="togglePassword"
+            aria-label="Show password"
+          >⊘</button>
+        </div>
+
+        <p class="password-error" id="passwordError" role="alert"></p>
+
+        <button type="submit" class="unlock-button" id="unlockButton">
+          Unlock <span>♥</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: CAKE -->
+  <section class="screen cake-screen" id="cakeScreen" aria-hidden="true">
+    <div class="cake-content">
+      <h2 class="cake-heading">🎂 Make a wish...</h2>
+
+      <div class="cake-button">
+        <div class="cake">
+          <div class="candle" id="candle">
+            <span class="flame"></span>
+          </div>
+
+          <div class="tier top"></div>
+          <div class="tier middle"></div>
+          <div class="tier bottom"></div>
+          <div class="plate"></div>
+
+          <div class="smoke" id="smoke" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="instruction" id="instruction">
+        Make a wish and blow! 💨
+      </p>
+      <p class="subhint" id="subhint">
+        Blow gently toward your microphone ✨
+      </p>
+    </div>
+  </section>
+
+  <!-- SCREEN 3: SHOW ONLY THE PHOTO -->
+<section
+  class="screen birthday-screen photo-screen"
+  id="birthdayScreen"
+  aria-hidden="true"
+>
+  <img
+    src="images/page.png"
+    alt="Birthday surprise"
+    class="full-page-photo"
+    style="transform: translateY(45px);"
+  >
+  <button
+  type="button"
+  class="next-surprise-btn"
+  id="nextSurpriseButton"
+  onclick="goToNextPage()"
+>
+  Idhar aa →
+</button>
+</section>
+
+<!-- SCREEN 4: ENVELOPE SURPRISE -->
+<section class="screen next-screen" id="nextScreen" aria-hidden="true">
+
+  <!-- ENVELOPE PAGE -->
+  <div class="envelope-home" id="envelopeHome">
+    
+
+    
+
+    
+
+<div class="envelope-stack" id="envelopeStack">
+
+  <!-- back of the pile -->
+  <button class="envelope" type="button" data-letter="3">
+    <span class="envelope-back"></span>
+    <span class="envelope-front"></span>
+    <span class="envelope-flap"></span>
+    <span class="envelope-seal">♥</span>
+    <span class="envelope-label">Open when you are sad </span>
+  </button>
+
+  <button class="envelope" type="button" data-letter="2">
+    <span class="envelope-back"></span>
+    <span class="envelope-front"></span>
+    <span class="envelope-flap"></span>
+    <span class="envelope-seal">♥</span>
+    <span class="envelope-label">🙄🙄</span>
+  </button>
+
+  <!-- second from top: life.mp4 -->
+  <button class="envelope" type="button" data-letter="1">
+    <span class="envelope-back"></span>
+    <span class="envelope-front"></span>
+    <span class="envelope-flap"></span>
+    <span class="envelope-seal">♥</span>
+    <span class="envelope-label">Life with you ♡</span>
+  </button>
+
+  <!-- top of the pile: flowers.mp4 -->
+  <button class="envelope" type="button" data-letter="0">
+    <span class="envelope-back"></span>
+    <span class="envelope-front"></span>
+    <span class="envelope-flap"></span>
+    <span class="envelope-seal">♥</span>
+    <span class="envelope-label">Flowers for you 🌸</span>
+  </button>
+
+</div>
+
+    
+  </div>
+<!-- FULL-PAGE VIDEO READER -->
+<div class="letter-reader" id="letterReader" aria-hidden="true">
+
+  <button class="letter-back" id="letterBack" type="button">
+    ← Back to the envelopes
+  </button>
+<div class="video-intro" id="videoIntro">
+  <p id="videoIntroText"></p>
+  <button type="button" id="videoIntroNext" class="video-intro-next">Next →</button>
+</div>
+<img id="sadPhoto" class="sad-photo" alt="" style="display: none;">
+<button type="button" id="sadNext" class="sad-next" style="display: none;">Next →</button>
+
+  <article class="letter-page" id="letterPage" tabindex="-1">
+
+    <video
+      id="flowersVideo"
+      class="flowers-video"
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      style="display: none;"
+    >
+      <source src="images/flowers.mp4" type="video/mp4">
+    </video>
+
+    <video
+      id="lifeVideo"
+      class="flowers-video"
+      playsinline
+      preload="auto"
+      disablepictureinpicture
+      style="display: none;"
+    >
+      <source src="images/life.mp4" type="video/mp4">
+    </video>
+
+    <video
+  id="hushVideo"
+  class="flowers-video"
+  playsinline
+  preload="auto"
+  disablepictureinpicture
+  style="display: none;"
+>
+  <source src="images/hush.mp4" type="video/mp4">
+</video>
+
+  </article>
+</div>
+<!-- FINAL "IDHAR AA" BUTTON -->
+<button type="button" id="finalButton" class="final-btn" style="display: none;">
+  Idhar aa →
+</button>
+
+<!-- FINAL BIRTHDAY VIDEO -->
+<div class="final-video-screen" id="finalVideoScreen">
+  <video
+    id="birthdayVideo"
+    class="birthday-video"
+    playsinline
+    preload="auto"
+    disablepictureinpicture
+  >
+    <source src="images/birthday.mp4" type="video/mp4">
+  </video>
+</div>
+</section>
+</main>
+</body>
+</html>
